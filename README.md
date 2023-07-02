@@ -1,2 +1,2 @@
-# Grupo_05
+# Grupo_05_Trabajo Final
 CATALOGO DE VENTAS DE UN RESTAURANTE
