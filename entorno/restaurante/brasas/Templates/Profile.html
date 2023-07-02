@@ -1,0 +1,90 @@
+{% extends './base.html' %}
+  
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form class="d-flex" role="search">
+  {% if user.is_authenticated %}
+   
+    <h5>Bienvenida {{ user.username }}! </h5>
+    <br>
+      <a href="/signout" class="btn btn-danger"> Cerrar sesion </a>
+      
+    {% else %}
+      <a href="/signin" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>Iniciar sesion</a> 
+      <a href="/signup" class="btn btn-success">Registrarse</a>
+    {% endif %}
+</form> 
+{% endblock %}
+
+{%block body%}
+<main role="main" class="container my-auto">
+    <div class="row">
+        <div class="container py-4">
+            <h2 class="text-center text-black">Bienvenido a la Pagina</h2>
+
+          <div id="carouselExampleIndicators" class="carousel slide mx-auto half-screen-carousel" data-bs-ride="carousel">
+              <ol class="carousel-indicators">
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"></li>
+                  <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"></li>
+              </ol>
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      
+                      <img class="img-fluid mx-auto d-block rounded" src="https://images.unsplash.com/photo-1687244452791-d7082811e658?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80" />
+                  </div>
+                  <div class="carousel-item">
+                      <img class="img-fluid mx-auto d-block rounded" src="https://images.unsplash.com/photo-1687068328974-13261a846e58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" />
+                  </div>
+                  <div class="carousel-item">
+                      <img class="img-fluid mx-auto d-block rounded" src="https://plus.unsplash.com/premium_photo-1683892041448-076d7ad55505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" />
+                  </div>
+                  <div class="carousel-item">
+                    <img class="img-fluid mx-auto d-block rounded" src="https://images.unsplash.com/photo-1685700370160-dfed5ea8c1b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" />
+                 </div>
+                 <div class="carousel-item">
+                        <img class="img-fluid mx-auto d-block rounded" src="https://images.unsplash.com/photo-1686940081950-aaf32270d799?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=386&q=80" />
+                 </div>
+                 <div class="carousel-item">
+                    <img class="img-fluid mx-auto d-block rounded" src="https://images.unsplash.com/photo-1686666281161-156faa69ac3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM1fHhqUFI0aGxrQkdBfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" />
+                 </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Siguiente</span>
+              </a>
+          </div>
+          <br>
+      
+          <div class="container py-4">
+            <div class="row mt-4">
+                <div class="col-8 offset-2">
+                    <h2 class="text-dark">Misión</h2>
+                    <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis, ex et condimentum vestibulum, ante lacus porta metus, ut interdum nulla libero id tellus. Nunc non dolor ac elit hendrerit iaculis. Donec eget nulla in felis feugiat sodales. Nullam dignissim, quam sed gravida faucibus, tellus tortor facilisis felis, vitae vestibulum quam purus a arcu.</p>
+                </div>
+            </div>
+        
+            <div class="row mt-4">
+                <div class="col-8 offset-2">
+                    <h2 class="text-dark">Visión</h2>
+                    <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis, ex et condimentum vestibulum, ante lacus porta metus, ut interdum nulla libero id tellus. Nunc non dolor ac elit hendrerit iaculis. Donec eget nulla in felis feugiat sodales. Nullam dignissim, quam sed gravida faucibus, tellus tortor facilisis felis, vitae vestibulum quam purus a arcu.</p>
+                </div>
+            </div>
+        </div>
+        
+      
+      
+      </div>
+    </div>
+</main>
+{% endblock %}
