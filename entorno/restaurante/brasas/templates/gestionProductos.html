@@ -1,0 +1,82 @@
+{% extends './Base.html' %}
+
+{% block title %}Gestión de Productos{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h2>Gestión de Productos</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrarProductos" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="txtcodigo" class="form-label">id:</label>
+                        <input type="text" name="txtcodigo" class="form-control" id="txtcodigo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtnombre" class="form-label">Nombre:</label>
+                        <input type="text" name="txtnombre" class="form-control" id="txtnombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtdescripcion" class="form-label">Descripcion:</label>
+                        <input type="text" name="txtdescripcion" class="form-control" id="txtdescripcion">
+                    </div>
+                    <div class="mb-3">
+                        <label for="numprecio" class="form-label">Precio:</label>
+                        <input type="number" name="numprecio" class="form-control" id="numprecio">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="txtcategoria" name="txtcategoria">
+                            <option value="" disabled selected>Seleccione una categoria</option>
+                            {% for product in productos %}
+                                <option value="{{ product.categoria }}">{{ product.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h2>Lista de Datos</h2>
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th colspan="2">Opciones de Manejo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.categoria }}</td>
+                    <td>
+                        <!-- Enlace para editar el producto -->
+                        <a href="/{{ producto.id }}" class="btn btn-info">Editar</a>
+                    </td>
+                    <td>
+                        <!-- Enlace para eliminar el producto -->
+                        <a href="/{{ producto.id }}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
