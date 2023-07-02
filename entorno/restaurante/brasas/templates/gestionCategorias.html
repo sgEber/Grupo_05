@@ -1,0 +1,56 @@
+{% extends './Base.html' %}
+
+{% block title %}Gestión de Categorias{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h2>Gestión de Categorias</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrarCategorias" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="txtnombre" class="form-label">Nombre:</label>
+                        <input type="text" name="txtnombre" class="form-control" id="txtnombre">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h2>Lista de Datos</h2>
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th colspan="2">Opciones de Manejo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in categoria %}
+                <tr>
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.nombre }}</td>
+                    <td>
+                        <!-- Enlace para editar el categoria -->
+                        <a href="edicionCategoria/{{ p.id }}" class="btn btn-info">Editar</a>
+                    </td>
+                    <td>
+                        <!-- Enlace para eliminar el categoria -->
+                        <a href="eliminarCategorias/{{ p.id }}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

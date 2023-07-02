@@ -11,27 +11,32 @@
         <h2>Edicion de Productos</h2>
         <div class="card">
             <div class="card-body">
-                <form action="/registrarProductos" method="POST">
+                <form action="/editarProducto" method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="txtcodigo" class="form-label">id:</label>
-                        <input type="text" name="txtcodigo" class="form-control" id="txtcodigo">
+                        <input type="text" name="txtcodigo" class="form-control" id="txtcodigo" value="{{producto.id}}">
                     </div>
                     <div class="mb-3">
                         <label for="txtnombre" class="form-label">Nombre:</label>
-                        <input type="text" name="txtnombre" class="form-control" id="txtnombre">
+                        <input type="text" name="txtnombre" class="form-control" id="txtnombre" value="{{producto.nombre}}">
                     </div>
                     <div class="mb-3">
                         <label for="txtdescripcion" class="form-label">Descripcion:</label>
-                        <input type="text" name="txtdescripcion" class="form-control" id="txtdescripcion">
+                        <input type="text" name="txtdescripcion" class="form-control" id="txtdescripcion" value="{{producto.descripcion}}">
                     </div>
                     <div class="mb-3">
                         <label for="numprecio" class="form-label">Precio:</label>
-                        <input type="number" name="numprecio" class="form-control" id="numprecio">
+                        <input type="number" name="numprecio" class="form-control" id="numprecio" value="{{producto.precio}}">
                     </div>
-                    <div class="mb-3">
-                        <label for="txtcategoria" class="form-label">Categoria:</label>
-                        <input type="text" name="txtcategoria" class="form-control" id="txtcategoria">
+                    <div class="form-group">
+                        <label for="txtcategoria" class="form-label">Categoría:</label>
+                        <select class="form-control" id="txtcategoria" name="txtcategoria">
+                            <option value="" disabled selected>Seleccione una categoría</option>
+                            {% for cat in categoria %}
+                                <option value="{{ cat.nombre }}">{{ cat.nombre }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -21,12 +21,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'productos' %}">Productos</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'categorias' %}">Categorias</a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="btn btn-danger dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Listas de Información
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{% url 'buscarProducto' %}">Lista de Productos</a></li>
+                  <li><a class="dropdown-item" href="{% url 'buscarCategoria' %}">Lista de Categorias</a></li>
                 </ul>
               </li>
             </ul>

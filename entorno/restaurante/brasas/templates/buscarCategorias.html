@@ -1,45 +1,39 @@
 {% extends "./Base.html" %}
 
-{% block title %}Gestión de Productos{% endblock %}
+{% block title %}Gestión de Categorias{% endblock %}
 
 {% block body %}
 
 <form class="d-flex" role="search" method="POST" name="nombre">
     {% csrf_token %}
     <div class="search-container">
-        <input class="form-control form-control-sm mr-2" type="search" placeholder="Producto" aria-label="Search" name="nombre">
+        <input class="form-control form-control-sm mr-2" type="search" placeholder="Categoria" aria-label="Search" name="nombre">
     </div>
     <button class="btn btn-outline-primary btn-warning" type="submit">Buscar</button>
 </form>
 
 <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-    <h2>Lista de Productos</h2>
+    <h2>Lista de Categorias</h2>
     <table class="table table-primary">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Categoría</th>
                 <th colspan="2">Opciones de Manejo</th>
             </tr>
         </thead>
         <tbody>
-            {% for p in producto %}
+            {% for p in categoria %}
             <tr>
                 <td>{{ p.id }}</td>
                 <td>{{ p.nombre }}</td>
-                <td>{{ p.descripcion }}</td>
-                <td>{{ p.precio }}</td>
-                <td>{{ p.categoria }}</td>
                 <td>
-                    <!-- Enlace para editar el producto -->
-                    <a href="edicionProducto/{{ p.id }}" class="btn btn-info">Editar</a>
+                    <!-- Enlace para editar el categoria -->
+                    <a href="edicionCategoria/{{ p.id }}" class="btn btn-info">Editar</a>
                 </td>
                 <td>
-                    <!-- Enlace para eliminar el producto -->
-                    <a href="eliminarProductos/{{ p.id }}" class="btn btn-danger">Eliminar</a>
+                    <!-- Enlace para eliminar el categoria -->
+                    <a href="eliminarCategorias/{{ p.id }}" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
