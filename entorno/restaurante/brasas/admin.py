@@ -5,6 +5,7 @@ from .models import Categoria, Producto, Pedido, DetallePedido
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
+
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre', 'categoria', 'precio')
