@@ -22,6 +22,7 @@ class Pedido(models.Model):
         ('pendiente', 'Pendiente'),
         ('en_proceso', 'En proceso'),
         ('entregado', 'Entregado'),
+        ('cancelado', 'Cancelado'), 
     )
 
     mesa = models.IntegerField()

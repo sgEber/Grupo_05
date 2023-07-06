@@ -99,6 +99,7 @@
                                 <option value="pendiente" {% if pedido.estado == 'pendiente' %}selected{% endif %}>Pendiente</option>
                                 <option value="en_proceso" {% if pedido.estado == 'en_proceso' %}selected{% endif %}>En Proceso</option>
                                 <option value="entregado" {% if pedido.estado == 'entregado' %}selected{% endif %}>Entregado</option>
+                                <option value="cancelado" {% if pedido.estado == 'cancelado' %}selected{% endif %}>Cancelado</option>
                             </select>
                             <button type="submit" class="btn btn-primary">Actualizar Estado</button>
                         </form>
